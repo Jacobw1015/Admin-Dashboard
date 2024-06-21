@@ -1,0 +1,16 @@
+.card{
+    border-radius: 5px;
+    background-color: var(--sidebar-background);
+    width: 20%;
+    min-width: 400px;
+    max-width: 800px;
+    box-shadow: 0.25rem 0.5rem 1rem 6px rgb(211, 211, 211);
+    padding: 1rem;
+  }
+  section.card-body > p{
+    padding: 5px;
+  }
+  section.card-body > p:hover{
+    cursor: pointer;
+    background-color: var(--hover-background-color);
+  }
