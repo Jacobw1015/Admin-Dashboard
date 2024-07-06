@@ -1,15 +1,16 @@
 import { ReactNode } from 'react'
 import './Card.css'
+import capitalize from '../../Util/capitalize';
 
-interface CardProps extends React.AllHTMLAttributes<HTMLDivElement>{
+interface CardProps extends React.HTMLAttributes<HTMLElement>{
     header?:string;
     children:ReactNode;
 }
-export default function Card({header,children, ...props}:CardProps){
+export default function Card({header,children, className, ...props}:CardProps){
 
     return(
-        <div className="card" {...props}>
-            {header&&<h2 className='card-header'>{header}</h2>}
+        <div className={`card ${className}`} {...props}>
+            {header&&<h2 className='card-header'>{capitalize(header)}</h2>}
             <section className='card-body'>
                 {children}
             </section>

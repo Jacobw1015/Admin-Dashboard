@@ -3,14 +3,28 @@
     background-color: var(--sidebar-background);
     width: 20%;
     min-width: 400px;
-    max-width: 800px;
+    min-height: 120px;
+    max-height: 300px;
+    overflow: auto;
     box-shadow: 0.25rem 0.5rem 1rem 6px rgb(211, 211, 211);
     padding: 1rem;
   }
-  section.card-body > p{
+.card-wide{
+  width: 30%;
+  max-width: 1200px;
+}
+
+h2.card-header{
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: var(--sidebar-background);
+  text-align: center;
+}
+  section.card-body > *{
     padding: 5px;
   }
-  section.card-body > p:hover{
+  section.card-body > * >*  :hover{
     cursor: pointer;
-    background-color: var(--hover-background-color);
+    background-color: var(--third-color-hover);
   }

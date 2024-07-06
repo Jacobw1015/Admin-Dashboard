@@ -8,84 +8,172 @@
 }
 
 :root{
+  /* The Generics */
   --background-color: #e2e2e2f3;
   --hover-background-color: rgb(236, 236, 236);
   --active-background-color: rgb(211, 211, 211);
   --border-line: 1px solid;
+ 
+  /* Sidebar variables */
   --sidebar-background: #fff;
+  --sidebar-width: 200px;
+ 
+  /* Navbar variables */
+  --navbar-bk-clr: #29302e;
+
+  /* Footer variables */
+  --footer-bk-clr: #0b171d;
+
+  --primary-color: rgb(252, 226, 82);
+  --primary-color-hover: rgb(243, 213, 46);
+  --secondary-color: rgb(255, 60, 0);
+  --third-color: rgb(252, 240, 226);
+  --third-color-hover:rgb(252, 245, 238);
+
 }
 body{
-  background-color: var(--background-color);
-  width: 100vw;
-  height: 100%;
-  overflow-x: hidden;
+  background-color: var(--third-color);
 }
-div.container{
+div.container{  
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 10% 1fr;
+  grid-template-rows: 8% 1fr;
+  grid-template-areas: 
+  "header header"
+  "sidebar content"
+  "sidebar content"
+  "sidebar footer ";
+  
+  
+}
+div.container >*{
+  
+  padding: .5rem  ;
+}
+header.header{
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+nav{
+  width: 15%;
+}
+nav ul.links{
+  display: flex;
+  width: 100%;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+}
+.links li.link{
+  padding: .5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+.links li.link:hover{
+  background-color: var(--primary-color-hover);
+  color: var(--secondary-color);
+
+}
+
+.content{
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 1rem;
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+  
+}
+.content > *{
+  scrollbar-width: thin;
+}
+div.card.requests{
+  display: inline-table;
+  grid-column: 1/3;
+  width: 100%;
+  min-height: 300px;
+  max-height: 350px;
+
+}
+
+.footer{
+  grid-area: footer;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   display: flex;
   justify-content: space-between;
-  width: 100%;
-}
-
-.sidebar{
-  background-color: var(--sidebar-background);
-    height: 100vh;
-    width: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-.sidebar-wrapper{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: start;
-  height: 70%;
-  width: 100%;
-} 
-.sidebar .sidebar-wrapper img{
-  width: 30px;
-  height: 30px;
-  margin: 0 1.25rem;
-}
-div.icon{
-  display: flex;
   align-items: center;
-  cursor: pointer;
-  width: 100%;
-  padding: 5px;
+  
 }
-.sidebar-wrapper span.caption{
-  flex-grow: 1;
+.footer > *{
+  padding-inline: 2rem ;
 }
-div.icon:hover{
-  background-color: var(--hover-background-color);
-}
-
-h2.sidebar-header{
-  text-align: center;
-  margin-top: 2rem; 
-  border-bottom: var(--border-line);
-  border-color: var(--active-background-color);
-  padding-bottom: 3rem;
-  width: 80%;
-}
-hr.line{
-  width: 90%;
-  align-self: center;
-}
-div.ad{
-  margin-bottom: 2rem;
-}
-
-main.content{
-  flex: 1;
+aside.sidebar{
   display: grid;
   align-items: center;
-  justify-items: center;
-  grid-template-columns: 1fr ;
+  justify-content: center;
+  grid-area: sidebar;
+  background-color: var(--sidebar-background);
 }
 
+div.icon{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: .5rem;
+  border-radius: 15px;
+}
+div.icon:hover{
+  cursor: pointer;
+  background-color: var(--third-color-hover);
+}
+div.icon img{
+  --img-size: 30px;
+  width: var(--img-size);
+  height: var(--img-size);
+  margin-right: 1rem;
+}
+div.icon span.caption{
+  flex: 1;
+}
+
+
+section.users div.user{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.users div.user:hover{
+  cursor: pointer;
+  background-color: var(--third-color-hover);
+}
+
+section.requests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-y: auto;
+  width: 100%;
+  text-align: center;
+}
+section.requests .card:hover{
+  cursor: pointer;
+  background-color: var(--third-color-hover);
+}
+/* Utility classes */
+
+.text-center{
+  text-align: center;
+}
 
 .active{
   background-color: var(--active-background-color);
